@@ -1,0 +1,234 @@
+<div class="header">
+  <div class="header-logo-div">
+    <span class="header-logo">valtech_</span>
+  </div>
+
+  <img src="../assets/menu.png" width="30" class="header-menu-icon" (click)="MenuClicked=!MenuClicked" />
+
+
+
+  <div [ngClass]="
+  {
+    'header-menu': !MenuClicked,
+    'header-menu-clicked': MenuClicked
+  }">
+    <ul>
+      <li>
+        <div><button class="header-menu-button" (click)="scrollToElement(sectionone,'sectionone')">Section
+            one</button><br />
+          <div class="header-hr" *ngIf="CurrentAnchor=='sectionone'"></div>
+        </div>
+      </li>
+      <li>
+        <div><button class="header-menu-button" (click)="scrollToElement(sectiontwo,'sectiontwo')">Section
+            two</button><br />
+          <div class="header-hr" *ngIf="CurrentAnchor=='sectiontwo'"></div>
+        </div>
+      </li>
+      <li>
+        <div><button class="header-menu-button" (click)="scrollToElement(sectionthree,'sectionthree')">Section
+            three</button><br />
+          <div class="header-hr" *ngIf="CurrentAnchor=='sectionthree'"></div>
+        </div>
+      </li>
+      <li>
+        <div><button class="header-menu-button" (click)="scrollToElement(sectionfour,'sectionfour')">Section
+            four</button><br />
+          <div class="header-hr" *ngIf="CurrentAnchor=='sectionfour'"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="header-search">
+    <input type="text" class="header-search-input" />
+    <button class="header-search-button">Search</button>
+  </div>
+
+</div>
+
+<!-- section 1 -->
+<section #sectionone id="sectionone" class="contact section">
+
+  <div class="section-title">
+    Section one
+  </div>
+
+  <div class="contact-center">
+
+    <a [href]="mailtoo" target="_blank" data-gen-email (click)="DecodeMailto()">
+      <button class="contact-button">
+        <label> <img src="http://simpleicon.com/wp-content/uploads/mail-5.png" width="20" class="overlay" /></label>
+        <label class="contact-text">Contact</label>
+      </button>
+    </a>
+    <br />
+    <label class="contact-text">Lorem ipsum dolor sit amet, consectetur </label>
+
+
+  </div>
+
+</section>
+
+<!-- section 2 -->
+<section id="sectiontwo" #sectiontwo>
+
+<!-- 
+  Here I tried to follow the description in the provided link.
+  I had a different idea on how to show the results and filter them, but I though you would say that I didn't followed the provided.
+  My solution was to create a table, listing the users as I already did, but the filter input value to be added in the head part of the table, according to me would be a better way to filter them. 
+-->
+
+
+  <div class="section-title" style="color:black">
+    Section two
+  </div>
+
+  <div class="filter-div">
+    <div class="filter-input-div">
+      <input type="text" class="filter-input" (input)="FilterUsers($event)" />
+      <button class="filter-button">Filter</button>
+    </div>
+    <br />
+    <div style="width: 50%;">
+      <label *ngIf="UsersFiltered.length>0">{{UsersFiltered.length}} users found.</label>
+      <label *ngIf="UsersFiltered.length==0">Results are empty</label>
+      <button class="sort-age" (click)="SortUsers()">Sort by age</button>
+    </div>
+    <div class="filter-div-table">
+      <div class="filter-user-results">
+        <table>
+          <tbody>
+            <tr *ngFor="let User of UsersFiltered" (click)="SelectedUser=User">
+              <td class="user-list">{{User.first_name}} {{User.last_name}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="filter-user-results">
+        <table *ngIf="SelectedUser.first_name">
+          <tr>
+            <td class="filter-user-info-left">First name:</td>
+            <td class="filter-user-info-right">{{SelectedUser.first_name}}</td>
+          </tr>
+          <tr>
+            <td class="filter-user-info-left">Last name</td>
+            <td class="filter-user-info-right">{{SelectedUser.last_name}}</td>
+          </tr>
+          <tr>
+            <td class="filter-user-info-left">Email:</td>
+            <td class="filter-user-info-right">{{SelectedUser.email}}</td>
+          </tr>
+          <tr>
+            <td class="filter-user-info-left">Gender</td>
+            <td class="filter-user-info-right">{{SelectedUser.gender}}</td>
+          </tr>
+          <tr>
+            <td class="filter-user-info-left">Age</td>
+            <td class="filter-user-info-right">{{SelectedUser.age}}</td>
+          </tr>
+        </table>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+<!-- section 3 -->
+<section id="sectionthree" #sectionthree class="section">
+
+
+  <div class="section-title" style="color:black">
+    Section three
+  </div>
+
+
+  <article class="article">
+    <div [ngStyle]="{'background': 'url(' + Article1 + ')' }" class="article-image"></div>
+    <div class="article-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+      been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+      scrambled </div>
+    <div class="article-button-div">
+      <button class="article-button">Read more</button>
+    </div>
+  </article>
+
+  <article class="article">
+    <div [ngStyle]="{'background': 'url(' + Article2 + ')' }" class="article-image"></div>
+    <div class="article-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </div>
+    <div class="article-button-div">
+      <button class="article-button">Read more</button>
+    </div>
+  </article>
+
+  <article class="article">
+    <div [ngStyle]="{'background': 'url(' + Article3 + ')' }" class="article-image"></div>
+    <div class="article-text">Lorem Ipsum is simply dummy text of the printing </div>
+    <div class="article-button-div">
+      <button class="article-button">Read more</button>
+    </div>
+  </article>
+
+  <article class="article">
+    <div [ngStyle]="{'background': 'url(' + Article4 + ')' }" class="article-image"></div>
+    <div class="article-text">Lorem Ipsum is simply dummy </div>
+    <div class="article-button-div">
+      <button class="article-button">Read more</button>
+    </div>
+  </article>
+
+</section>
+
+<!-- section 4 -->
+<section id="sectionfour" #sectionfour class="section" [ngStyle]="{'background': 'url(' + RandomBackgroundForm + ')' }">
+
+
+  <div class="section-title">
+    Section four
+  </div>
+
+  <form class="contactform">
+
+    <div class="form-element">
+      <label>Contact us</label>
+    </div>
+    <div>
+      <div class="form-element">
+        <label>First Name</label>
+        <input type="text" />
+      </div>
+      <div class="form-element">
+        <label>Last Name</label>
+        <input type="text" />
+      </div>
+    </div>
+
+    <div>
+      <div class="form-element">
+        <label>Email address</label>
+        <input type="text" />
+      </div>
+      <div class="form-element">
+        <label>Phone number</label>
+        <input type="text" />
+      </div>
+    </div>
+
+    <div>
+      <div class="form-element">
+        <label>Your message</label>
+        <textarea rows="3"></textarea>
+      </div>
+      <div class="form-element" style="justify-content: end;">
+        <label></label>
+        <button class="article-button">Send</button>
+      </div>
+    </div>
+
+  </form>
+
+</section>

@@ -1,0 +1,294 @@
+$sectionHeight: 60vh
+$article_height: 300px
+
+.section
+ justify-content: space-around
+ display: flex
+ flex-wrap: wrap
+ padding-bottom: 30px
+
+
+.header-hr
+ height: 4px 
+ background-color: #00e9ff 
+ border-radius: 2px 
+ padding: 0px 
+ width: 50% 
+ margin: auto 
+ border: 0px 
+ 
+.header ul
+ list-style-type: none
+ margin: auto
+ padding: 0
+ overflow: hidden
+ text-align: center
+ justify-content: center
+ width: fit-content
+
+.header li
+ display: block
+ text-align: center
+ text-decoration: none
+ float: left
+ padding: 0px
+
+.header-logo
+ font-family: monospace
+ font-size: 4em
+ font-weight: bolder
+ text-align: center
+
+.header-logo-div
+ width: 30%
+ display: inline-block
+
+.header-search
+ width: 30%
+ display: inline-block
+ vertical-align: super
+ text-align: right
+ @media (max-width: 992px) 
+  display: none
+
+.header-menu
+ width: 40%
+ display: inline-block
+ vertical-align: bottom
+ @media (max-width: 992px) 
+  display: none
+
+.header-menu-clicked
+ width: 15%
+ display: inline-block
+ vertical-align: bottom
+ position: absolute
+ background-color: #fffffff7
+ right: 30px
+
+.header-search-button
+ background-color: cyan
+ border: 0px
+ height: 30px
+ padding: 10px
+ text-transform: uppercase
+
+.header-search-input
+ height: 25px
+ margin: -3px 0px 3px 3px
+ border-bottom-left-radius: 11px
+ border-top-left-radius: 11px
+ border: 1px solid darkblue
+
+.header-menu-button
+ background-color: #ffffff00
+ border: 0px
+ padding-bottom: 10px
+ font-family: cursive
+
+.header-menu-icon
+ float: right
+ @media (min-width: 992px)
+  display: none
+
+
+.contact
+ height: $sectionHeight
+ background-image: url(https://wallpaperaccess.com/full/3124511.jpg)
+ background-size: cover
+ margin: 0px
+ display: flex
+
+.contact-title
+ color: white
+ font-family: cursive
+ position: relative
+ left: -100px
+ top: 50px
+
+.contact-center
+ height: 50px
+ background-color: rgba(255, 255, 255, 0.5)
+ width: 100%
+ display: flow-root
+ padding: 50px
+ text-align: center
+
+.contact-button
+ margin: auto
+ padding: 10px
+ border: 0px
+ border-radius: 25px
+ height: 50px
+ min-width: 70px
+ width: 30%
+ background-color: rgb(0 0 0 / 80%)
+ color: white
+ box-shadow: 0px 5px 0px 0px rgb(0 0 0 / 30%)
+ transition: 1s ease
+
+.contact-button:hover
+ border-radius: 5px
+ background-color: rgb(255 255 255 / 80%)
+ color: black
+
+.contact-button:hover .contact-text
+ display: none
+
+.overlay
+ display: none
+ margin: auto
+
+.contact-button:hover .overlay
+ display: block
+ transition: 1s ease
+ margin: auto
+
+.contact-text
+ font-family: cursive
+ font-size: 10px
+
+
+
+.article-image
+ background-size: cover
+ height: $article_height/3
+
+.article-text
+ padding: 30px
+ height: $article_height*0.2
+ overflow: hidden
+
+
+.article-button
+ background-color: black
+ color: white
+ border-radius: 10px
+ padding: 10px
+ width: 20%
+ float: right
+ margin: 5px
+ white-space: nowrap
+ min-width: 150px
+ border: 0px
+ height: 40px
+
+
+.article 
+ @media (min-width: 0px) 
+  margin-top: 50px
+  width: 100%
+  border-radius: 20px
+  overflow: hidden
+  height: $article_height
+  box-shadow: 0px 10px 15px 0px rgb(0 0 0 / 50%)
+ @media (max-width: 576px) 
+  width: 100%
+ @media (min-width: 576px) 
+  width: 35%
+
+.form-element
+ display: inline-grid
+ padding: 10px
+ width: 200px
+
+.form-element>input
+ height: 25px 
+ border-radius: 10px 
+ border: 0px 
+ width: 100%
+
+.form-element>textarea
+ border-radius: 10px 
+ border: 0px 
+ width: 100%
+
+.form-send-button
+ background-color: black
+ color: white
+ display: inline-grid 
+
+.contactform
+ padding: 5px 
+ background-color: rgba(255,255,255,0.5)  
+ margin: 100px
+ border-radius: 20px 
+
+.section-four-label
+ margin: 40px 
+ position: absolute 
+ left: 100px 
+
+.section-title
+ width: -webkit-fill-available
+ padding: 50px 0px 0px 50px 
+ font-family: cursive 
+ color: white
+
+
+.filter-input
+ height: 30px 
+ border-top-left-radius: 10px 
+ border-bottom-left-radius: 10px 
+ border: 1px solid black 
+
+.filter-button
+ height: 34px 
+ border-top-right-radius: 10px 
+ border-bottom-right-radius: 10px 
+ border: 0px 
+ width: 100px 
+
+
+.filter-div
+ min-width: 50%
+ max-width: 70%
+ margin: auto
+
+.filter-input-div
+ text-align: center
+
+.filter-user-results
+ height: 300px 
+ overflow: auto 
+ display: inline-block 
+ min-width: 50% 
+ max-width: 50% 
+ width: auto 
+ text-align: center 
+
+table
+ width: 100%
+
+.user-list
+ padding: 5px
+
+.user-list:hover
+ background-color: rgba(200,200,200,0.5)
+ border-radius: 5px
+ color: rgba(0,0,0,0.6)
+
+.filter-div-table
+ border: 1px solid darkblue
+ border-radius: 10px
+ overflow: hidden
+ width: 100%
+ background-color: white
+
+.filter-user-info-left
+ text-align: right
+ width: 50%
+
+.filter-user-info-right
+ text-align: left
+ width: 50%
+
+.sort-age
+ float: right 
+ border: 0px 
+ padding: 5px 
+ border-radius: 3px
+
+#sectiontwo
+ background-color: cyan
+ padding-bottom: 30px
